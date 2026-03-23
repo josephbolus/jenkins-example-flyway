@@ -13,8 +13,8 @@ pipeline {
       steps {
         sh '''docker run --rm \
           --network sandbox-net \
-          -v $JENKINS_HOME_PATH/sql:/flyway/sql \
-          -v $JENKINS_HOME_PATH/conf:/flyway/conf \
+          -v $JENKINS_HOME_PATH/workspace/$JOB_NAME/sql:/flyway/sql \
+          -v $JENKINS_HOME_PATH/workspace/$JOB_NAME/conf:/flyway/conf \
           flyway/flyway:8.5.1 \
           -configFiles=/flyway/conf/flyway.conf \
           -user=$DB_CREDS_USR \
@@ -26,8 +26,8 @@ pipeline {
       steps {
         sh '''docker run --rm \
           --network sandbox-net \
-          -v $JENKINS_HOME_PATH/sql:/flyway/sql \
-          -v $JENKINS_HOME_PATH/conf:/flyway/conf \
+          -v $JENKINS_HOME_PATH/workspace/$JOB_NAME/sql:/flyway/sql \
+          -v $JENKINS_HOME_PATH/workspace/$JOB_NAME/conf:/flyway/conf \
           flyway/flyway:8.5.1 \
           -configFiles=/flyway/conf/flyway.conf \
           -user=$DB_CREDS_USR \
@@ -39,8 +39,8 @@ pipeline {
       steps {
         sh '''docker run --rm \
           --network sandbox-net \
-          -v $JENKINS_HOME_PATH/sql:/flyway/sql \
-          -v $JENKINS_HOME_PATH/conf:/flyway/conf \
+          -v $JENKINS_HOME_PATH/workspace/$JOB_NAME/sql:/flyway/sql \
+          -v $JENKINS_HOME_PATH/workspace/$JOB_NAME/conf:/flyway/conf \
           flyway/flyway:8.5.1 \
           -configFiles=/flyway/conf/flyway.conf \
           -user=$DB_CREDS_USR \
