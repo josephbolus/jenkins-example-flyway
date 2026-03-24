@@ -14,7 +14,7 @@ pipeline {
     }
     stage('migrate') {
       steps {
-        sh '''echo "$JENKINS_HOME_PATH/workspace/$JOB_NAME" && ls $JENKINS_HOME_PATH/workspace/$JOB_NAME && docker run --rm \
+        sh '''echo "$JENKINS_HOME_PATH/workspace/$JOB_NAME" && ls /flyway/sql && docker run --rm \
           --network $FLYWAY_NETWORK \
           -v $JENKINS_HOME_PATH/workspace/$JOB_NAME/sql:/flyway/sql \
           -v $JENKINS_HOME_PATH/workspace/$JOB_NAME/conf:/flyway/conf \
